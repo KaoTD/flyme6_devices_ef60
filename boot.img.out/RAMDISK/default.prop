@@ -1,0 +1,24 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+ro.adb.secure=0
+ro.secure=0
+ro.allow.mock.location=1
+ro.debuggable=1
+ro.zygote=zygote32
+dalvik.vm.image-dex2oat-Xms=64m
+dalvik.vm.image-dex2oat-Xmx=64m
+dalvik.vm.dex2oat-Xms=64m
+dalvik.vm.dex2oat-Xmx=512m
+ro.dalvik.vm.native.bridge=0
+debug.atrace.tags.enableflags=0
+persist.sys.usb.control=disable
+persist.pantech.usb.version=0
+persist.sys.isUsbOtgEnabled=true
+#
+# BOOTIMAGE_BUILD_PROPERTIES
+#
+ro.bootimage.build.date=Thứ hai, 06 Tháng ba năm 2017 21:16:37 ICT
+ro.bootimage.build.date.utc=1471616197
+ro.bootimage.build.fingerprint=PANTECH/ef60s/ef60s:6.0.1/MOB30Z/25416d0849:userdebug/test-keys
+persist.sys.usb.config=mtp

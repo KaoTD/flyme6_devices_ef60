@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/dexopt_background" android:padding="@dimen/dexopt_margin" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:layout_width="@dimen/dexopt_logo_size" android:layout_height="0.0dip" android:src="@drawable/dexopt_brand_logo" android:scaleType="centerInside" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center" android:id="@id/dexopt_icon" android:visibility="gone" android:layout_width="@dimen/dexopt_icon_size" android:layout_height="@dimen/dexopt_icon_size" android:layout_margin="@dimen/dexopt_icon_margin" android:scaleType="centerInside" />
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:animateLayoutChanges="true">
+                <TextView android:textColor="@color/dexopt_text" android:ellipsize="marquee" android:gravity="center" android:id="@id/dexopt_message" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:lines="1" android:scrollHorizontally="true" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" style="?android:attr/textAppearanceMedium" />
+                <TextView android:textColor="@color/dexopt_text" android:ellipsize="marquee" android:gravity="center" android:id="@id/dexopt_message_detail" android:focusable="true" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:lines="1" android:scrollHorizontally="true" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:fontFamily="sans-serif-light" style="?android:attr/textAppearanceSmall" />
+            </LinearLayout>
+            <Space android:layout_width="@dimen/dexopt_icon_size" android:layout_height="@dimen/dexopt_icon_size" android:layout_margin="@dimen/dexopt_icon_margin" />
+        </LinearLayout>
+        <ProgressBar android:id="@id/dexopt_progress" android:layout_width="fill_parent" android:layout_height="wrap_content" android:indeterminate="false" style="@android:style/Widget.Material.ProgressBar.Horizontal" />
+    </LinearLayout>
+</LinearLayout>
