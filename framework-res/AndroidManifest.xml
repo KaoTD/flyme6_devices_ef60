@@ -244,6 +244,7 @@
     <protected-broadcast android:name="org.cyanogenmod.intent.action.THEME_CHANGED"/>
     <protected-broadcast android:name="android.intent.action.THEME_RESOURCES_CACHED"/>
     <protected-broadcast android:name="android.net.action.SHOW_NETWORK_POLICY_NOTIFICATION"/>
+    <protected-broadcast android:name="com.meizu.safe.ACTION_BLOCK_LOCKED_SCREEN_SHOW"/>
     <eat-comment/>
     <eat-comment/>
     <permission-group android:description="@string/permgroupdesc_contacts" android:icon="@drawable/perm_group_contacts" android:label="@string/permgrouplab_contacts" android:name="android.permission-group.CONTACTS" android:priority="100"/>
@@ -694,6 +695,7 @@
         <receiver android:name="com.android.server.MasterClearReceiver" android:permission="android.permission.MASTER_CLEAR">
             <intent-filter android:priority="100">
                 <action android:name="android.intent.action.MASTER_CLEAR"/>
+                <action android:name="android.intent.action.MZ_UPDATE"/>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
                 <category android:name="android.intent.category.MASTER_CLEAR"/>
             </intent-filter>
@@ -709,5 +711,17 @@
         <service android:exported="true" android:name="com.android.server.backup.FullBackupJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
         <service android:name="com.android.server.backup.KeyValueBackupJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
         <service android:exported="true" android:name="com.android.server.pm.BackgroundDexOptService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:excludeFromRecents="true" android:finishOnCloseSystemDialogs="false" android:name="com.android.internal.app.RecommendActivity" android:process=":ui" android:theme="@style/Theme.Holo.Dialog.Alert">
+            <intent-filter>
+                <action android:name="android.intent.action.RECOMMEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleTask" android:name="com.meizu.app.AccessApplication" android:needAccessControl="false" android:screenOrientation="portrait" android:theme="@style/Theme.Wallpaper.NoTitleBar.Fullscreen" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.content.pm.CONFIRM_ACCESS_APPCATONS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

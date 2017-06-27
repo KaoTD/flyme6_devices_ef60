@@ -788,36 +788,29 @@
 
     iput v11, v0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
-    .line 518
     move-object/from16 v0, p0
 
     iget v11, v0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
     if-nez v11, :cond_3
 
-    .line 519
     move-object/from16 v0, p7
 
     iget-object v11, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v11, v11, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    .line 520
     const/16 v12, 0xb
 
-    .line 519
     if-ge v11, v12, :cond_f
 
-    .line 521
-    const v11, 0x1030005
+    const v11, #android:style@Theme#t
 
-    .line 519
     :goto_3
     move-object/from16 v0, p0
 
     iput v11, v0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
-    .line 526
     :cond_3
     const/4 v11, 0x1
 
@@ -1073,7 +1066,7 @@
 
     .line 557
     :cond_6
-    const v11, 0x1030493
+    const v11, #android:style@Theme.DeviceDefault.FloatingWindow#t
 
     move-object/from16 v0, p0
 
@@ -1460,33 +1453,28 @@
 
     goto/16 :goto_1
 
-    .line 504
     :cond_e
     const/4 v11, 0x0
 
     goto/16 :goto_2
 
-    .line 522
     :cond_f
-    const v11, 0x103006b
+    const v11, #android:style@Theme.Holo#t
 
     goto/16 :goto_3
 
-    .line 528
     .restart local v7    # "stack":Lcom/android/server/am/ActivityStack;
     :cond_10
     const/4 v11, 0x0
 
     goto/16 :goto_4
 
-    .line 529
     :cond_11
     const/4 v3, 0x0
 
     .local v3, "baseRecord":Lcom/android/server/am/TaskRecord;
     goto/16 :goto_5
 
-    .line 532
     .end local v3    # "baseRecord":Lcom/android/server/am/TaskRecord;
     :cond_12
     const/4 v6, 0x0
@@ -5750,6 +5738,16 @@
     :cond_0
     const/4 v0, 0x1
 
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ActivityRecord;->isFlymeResolverActivity()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_flyme_0
+
+    const/4 v0, 0x0
+
+    :cond_flyme_0
+
     goto :goto_0
 .end method
 
@@ -7241,4 +7239,23 @@
     invoke-virtual {v3}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleIdleLocked()V
 
     goto :goto_0
+.end method
+
+.method private isFlymeResolverActivity()Z
+    .locals 2
+
+    .prologue
+    const-string v0, "com.android.internal.app.MzResolverActivity"
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method

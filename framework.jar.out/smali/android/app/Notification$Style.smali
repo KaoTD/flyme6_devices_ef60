@@ -141,7 +141,7 @@
 
     .line 3846
     .local v3, "topPadding":I
-    const v1, 0x1020392
+    const v1, #android:id@line1#t
 
     move-object v0, p1
 
@@ -221,9 +221,9 @@
     .param p1, "layoutId"    # I
 
     .prologue
-    const v8, 0x1020387
+    const v8, #android:id@overflow_divider#t
 
-    const v7, 0x1020075
+    const v7, #android:id@text#t
 
     const/16 v6, 0x8
 
@@ -256,7 +256,7 @@
     :cond_0
     iget-object v3, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
-    invoke-static {v3, p1}, Landroid/app/Notification$Builder;->-wrap0(Landroid/app/Notification$Builder;I)Landroid/widget/RemoteViews;
+    invoke-virtual {v3, p1}, Landroid/app/Notification$Builder;->applyStandardTemplateWithActionsFlyme(I)Landroid/widget/RemoteViews;
 
     move-result-object v0
 
@@ -281,12 +281,10 @@
 
     if-eqz v3, :cond_1
 
-    .line 3813
-    const v3, 0x1020392
+    const v3, #android:id@line1#t
 
     invoke-virtual {v0, v3, v6}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 3820
     :goto_0
     iget-boolean v3, p0, Landroid/app/Notification$Style;->mSummaryTextSet:Z
 
@@ -308,22 +306,18 @@
 
     invoke-virtual {v0, v7, v3}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    .line 3824
     invoke-virtual {v0, v8, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 3825
-    const v3, 0x1020394
+    const v3, #android:id@line3#t
 
     invoke-virtual {v0, v3, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 3833
     :goto_2
     return-object v0
 
-    .line 3815
     .end local v2    # "overflowText":Ljava/lang/CharSequence;
     :cond_1
-    const v3, 0x1020392
+    const v3, #android:id@line1#t
 
     invoke-virtual {v0, v3, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
@@ -340,17 +334,14 @@
     .restart local v2    # "overflowText":Ljava/lang/CharSequence;
     goto :goto_1
 
-    .line 3828
     :cond_3
-    const-string/jumbo v3, ""
+    const-string v3, ""
 
     invoke-virtual {v0, v7, v3}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    .line 3829
     invoke-virtual {v0, v8, v6}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 3830
-    const v3, 0x1020394
+    const v3, #android:id@line3#t
 
     invoke-virtual {v0, v3, v6}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
